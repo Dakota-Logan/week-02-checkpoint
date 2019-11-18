@@ -6,36 +6,39 @@ const log = console.log;
 var money = {current:0,total:0},
 	autoUp = {
 		upgrade1:{
+			a27:1.1,
 			price:100,
 			perInterval:2,
-			multiplier:1.25,
+			multiplier:1.5,
 			amount:0
 		},
 		upgrade2:{
+			a27:1.1,
 			price:500,
 			perInterval:4,
-			multiplier:1.25,
+			multiplier:1.5,
 			amount:0
 		}
 	},
 	clickUp = {
 		upgrade1:{
+			a27:1.1,
 			price:50,
-			multiplier:1.25,
+			multiplier:2,
 			amount:0
 		},
 		upgrade2:{
+			a27:1.1,
 			price:500,
-			multiplier:1.25,
+			multiplier:10,
 			amount:0
 		}
 	},
 	clickUp1 = clickUp.upgrade1,
-	clickUp2 = clickUp.upgrade1,
+	clickUp2 = clickUp.upgrade2,
 	autoUp1 = autoUp.upgrade1,
 	autoUp2 = autoUp.upgrade2,
-	// newUpPrice = function(who){who.price*=(Math.round(Math.pow(1.05*who.amount)*who.multiplier))};
-	newUpPrice = function(who){who.price*=who.multiplier};
+	newUpPrice = function(who){Math.floor(who.price*=(who.a27)); who.a27*=1.05;};
 	// DOM variables
 var statsMoney = document.getElementById('money'),
 	statsClick = document.getElementById('perClick'),
@@ -54,35 +57,35 @@ var statsMoney = document.getElementById('money'),
 
 /* Primary */
 function draw (){
-	// Drawing Stats
 	priceCheck();
-	autoRate = ((autoUp1.amount*autoUp1.multiplier*autoUp1.perInterval)+(autoUp2.amount*autoUp2.multiplier*autoUp2.perInterval));
-	clickRate = ((clickUp1.amount*clickUp1.multiplier)+(clickUp2.amount*clickUp2.multiplier));
+	autoRate = Math.floor((autoUp1.amount*autoUp1.multiplier*autoUp1.perInterval)+(autoUp2.amount*autoUp2.multiplier*autoUp2.perInterval));
+	clickRate = Math.floor((clickUp1.amount*clickUp1.multiplier)+(clickUp2.amount*clickUp2.multiplier));
+	// Drawing Stats
 	statsMoney.innerHTML = `${Math.floor(money.current)}`;
 	statsAuto.innerHTML = `${Math.floor(autoRate)}`;
 	statsClick.innerHTML = `${Math.floor(clickRate)}`;
 }
 function priceCheck (){
 	// Click Upgrade 1
-	if(money>=clickUp1.price){
+	if(money.current>=clickUp1.price){
 		upgBtnClick1.disabled = false;
 	}else{
 		upgBtnClick1.disabled = true;
 	}	
 	// Click Upgrade 2
-	if(money>=clickUp2.price){
+	if(money.current>=clickUp2.price){
 		upgBtnClick2.disabled = false;
 	}else{
 		upgBtnClick2.disabled = true;
 	}	
 	// Auto Upgrade 1
-	if(money>=autoUp1.price){
+	if(money.current>=autoUp1.price){
 		upgBtnAuto1.disabled = false;
 	}else{
 		upgBtnAuto1.disabled = true;
 	}	
 	// Auto Upgrade 2
-	if(money>=autoUp2.price){
+	if(money.current>=autoUp2.price){
 		upgBtnAuto2.disabled = false;
 	}else{
 		upgBtnAuto2.disabled = true;
@@ -99,8 +102,8 @@ function clickAction1(){
 }
 function clickAction2(){
 	money.current-=clickUp2.price;
-	newUpPrice(clickUp2);
 	clickUp2.amount++;
+	newUpPrice(clickUp2);
 	draw();
 }
 function autoAction1(){
@@ -125,6 +128,7 @@ function clickr () {
 }
 
 /* Helper */
+// Only on Startup!
 !function startUp () {
 	draw();
 	priceCheck();
