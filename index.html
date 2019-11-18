@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="chota.css">
+
+	<title>free market matter</title>
+</head>
+<body class="is-marginless is-paddingless">
+	
+	<header class="container">
+		<div class="row is-center">
+			<div class="col-12 col-8-md col-6-lg" id="stats">
+				<div class="col is-vertical-align is-horizontal-align"><h1 id="money">money</h1></div>
+				<div class="header-border"></div>
+				<div class="col is-vertical-align is-horizontal-align"><h1 id="perClick">Click</h1></div>
+				<div class="header-border"></div>
+				<div class="col is-vertical-align is-horizontal-align"><h1 id="perSecond">cs P/S</h1></div>
+			</div>
+			<div id="hi">
+				<p>don't play this</p>
+			</div>
+		</div>
+	</header>
+
+	<main class="container">
+		<div class="row is-horizontal-align is-vertical-align">
+			<div class="col-12 col-8-lg d-flex flex-column is-horizontal-align is-vertical-align" id="clickr" onclick="clickr()">
+				<img src="//placehold.it/500x500" alt="">
+			</div>
+		</div>
+	</main>
+
+	<footer class="container">
+		<div class="row is-horizontal-align is-vertical-align">
+			<div class="col-12 d-flex">
+				<div class="card d-flex flex-column" id="clickrUp">
+					<div>
+						<h3 class="is-center">Clicker Upgrades</h3>
+					</div>
+					<div class="upgrades d-flex">
+						<button class="upgrade" id="clickUpgrade1" type="button" onclick="clickAction1()">Upgrade 1</button>
+						<button class="upgrade" id="clickUpgrade2" type="button" onclick="clickAction2()">Upgrade 2</button>
+					</div>
+				</div>
+				<div class="card d-flex flex-column" id="autoUp">
+					<div>
+						<h3 class="is-center">Automatic Collectors</h3>
+					</div>
+					<div class="upgrades d-flex">
+						<button class="upgrade" id="autoUpgrade1" type="button" onclick="autoAction1()">Collector 1</button>
+						<button class="upgrade" id="autoUpgrade2" type="button" onclick="autoAction2()">Collector 2</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+<script src="app.js"></script>
+</html>
