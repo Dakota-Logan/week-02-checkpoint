@@ -13,11 +13,11 @@
 	<header class="container">
 		<div class="row is-center">
 			<div class="col-12 col-8-md col-6-lg" id="stats">
-				<div class="col is-vertical-align is-horizontal-align"><h1 id="money">money</h1></div>
+				<div class="col is-vertical-align is-horizontal-align d-flex flex-column"><h4>Current Moneies: </h4><h1 id="money"></h1></div>
 				<div class="header-border"></div>
-				<div class="col is-vertical-align is-horizontal-align"><h1 id="perClick">Click</h1></div>
+				<div class="col is-vertical-align is-horizontal-align d-flex flex-column"><h4>Click Modifier: </h4><h1 id="perClick"></h1></div>
 				<div class="header-border"></div>
-				<div class="col is-vertical-align is-horizontal-align"><h1 id="perSecond">cs P/S</h1></div>
+				<div class="col is-vertical-align is-horizontal-align d-flex flex-column"><h4>Colletors(Per/Sec): </h4><h1 id="perSecond"></h1></div>
 			</div>
 			<div id="hi">
 				<p>don't play this</p>
@@ -41,8 +41,9 @@
 						<h3 class="is-center">Clicker Upgrades</h3>
 					</div>
 					<div class="upgrades d-flex">
-						<button class="upgrade" id="clickUpgrade1" type="button" onclick="clickAction1()">Upgrade 1</button>
-						<button class="upgrade" id="clickUpgrade2" type="button" onclick="clickAction2()">Upgrade 2</button>
+						<button class="upgrade" id="clickUpgrade1" type="button" onclick="clickAction1()">Add 2 : <span id="countC1"></span></button>
+						<button class="upgrade" id="clickUpgrade2" type="button" onclick="clickAction2()">Add 10 : <span id="countC2"></span></button>
+						<button class="upgrade" id="clickUpgrade3" type="button" onclick="clickAction3()">2X Multiplier : <span id="countC3"></span></button>
 					</div>
 				</div>
 				<div class="card d-flex flex-column" id="autoUp">
@@ -50,8 +51,8 @@
 						<h3 class="is-center">Automatic Collectors</h3>
 					</div>
 					<div class="upgrades d-flex">
-						<button class="upgrade" id="autoUpgrade1" type="button" onclick="autoAction1()">Collector 1</button>
-						<button class="upgrade" id="autoUpgrade2" type="button" onclick="autoAction2()">Collector 2</button>
+						<button class="upgrade" id="autoUpgrade1" type="button" onclick="autoAction1()">Add 2 : <span id="countA1"></span></button>
+						<button class="upgrade" id="autoUpgrade2" type="button" onclick="autoAction2()">Add 10 : <span id="countA2"></span></button>
 					</div>
 				</div>
 			</div>
